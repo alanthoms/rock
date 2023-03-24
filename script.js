@@ -1,14 +1,20 @@
 
 const rps = ["rock", "paper", "scissors"];
-const playerSelection = "paper";
 
+// get player
+function getPlayerSelection(){
+    let result = prompt("enter choice");
+    return result;
+}
 //get random computer choice for rps
 function getComputerChoice(){
     choice = Math.floor(Math.random() * 3);
     return rps[choice];
 }
 //play a round
-function playRound(playerSelection, computerSelection){
+function playRound(){
+    let playerSelection = getPlayerSelection();
+    let computerSelection = getComputerChoice();
     let outcome;
     if (playerSelection == computerSelection){
         outcome = "draw";
@@ -31,10 +37,14 @@ function playRound(playerSelection, computerSelection){
             outcome = "lose";
         }
     }
-    return outcome + " " + playerSelection + " vs " + computerSelection;
+    return console.log(outcome + " " + playerSelection + " vs " + computerSelection);
 
 }
+//repeat for game
+function game(){
+    for (let i = 0; i <5; i++){
+        playRound();
+    }
+}
 
-//calculate who won
-console.log(playerSelection)
-console.log(playRound(playerSelection,getComputerChoice()));
+game();
