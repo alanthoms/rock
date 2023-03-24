@@ -1,6 +1,6 @@
 
-const rps = ["rock", "paper", "scissors"]
-
+const rps = ["rock", "paper", "scissors"];
+const playerSelection = "paper";
 
 //get random computer choice for rps
 function getComputerChoice(){
@@ -8,11 +8,33 @@ function getComputerChoice(){
     return rps[choice];
 }
 //play a round
-
 function playRound(playerSelection, computerSelection){
+    let outcome;
+    if (playerSelection == computerSelection){
+        outcome = "draw";
+    } else if(playerSelection == "rock"){
+        if(computerSelection == "scissors"){
+            outcome = "win";
+        }else{
+            outcome = "lose";
+        }
+    } else if(playerSelection == "paper"){
+        if(computerSelection == "rock"){
+            outcome = "win";
+        }else{
+            outcome = "lose";
+        }
+    } else if(playerSelection == "scissors"){
+        if(computerSelection == "paper"){
+            outcome = "win";
+        }else{
+            outcome = "lose";
+        }
+    }
+    return outcome + " " + playerSelection + " vs " + computerSelection;
 
 }
 
 //calculate who won
-
-console.log(getComputerChoice());
+console.log(playerSelection)
+console.log(playRound(playerSelection,getComputerChoice()));
